@@ -19,7 +19,7 @@ $(document).ready(function(){
 
 
 	// (iv) Select the select element inside #specials; traverse your way to the submit button.
-	console.log($("#specials select").parent().next().find('input.input_submit').css("color","red"));
+	console.log($("#specials select").parent().next().find("input[value='Go']").css("backgroundColor","red"));
 	
 	
 
