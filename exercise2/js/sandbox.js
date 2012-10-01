@@ -8,7 +8,7 @@ $(document).ready(function(){
 
 
 	// (ii) Select the search input text box, then traverse up to the form and add a class to the form.
-	$('label[for="q"]').parent().addClass("demoClass");
+	$('label[for="q"]').closest('form').addClass("demoClass");
 	
 
 
@@ -19,7 +19,7 @@ $(document).ready(function(){
 
 
 	// (iv) Select the select element inside #specials; traverse your way to the submit button.
-	console.log($("#specials select").parent().next().children(":first").css("color","red"));
+	console.log($("#specials select").parent().next().find('input.input_submit').css("color","red"));
 	
 	
 

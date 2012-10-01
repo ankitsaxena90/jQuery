@@ -1,20 +1,18 @@
 $(document).ready(function(){
 	// (i) Add five new list items to the end of the unordered list #myList.
-	var myItems = [], $myList = $('#myList');
-	for (var i=0; i<5; i++)
-		myItems.push('<li> New Item ' +i+ '</li>');
-	$myList.append(myItems.join(''));
+	for(var i=1; i<6; i++)
+		console.log($('#myList').append('<li> New ListItem '+i+'</li>').css("backgroundColor","yellow"));
 
 
 
 	// (ii) Remove the odd list items
-	$('#myList li:nth-child(odd)').remove();
+	$('#myList li:odd').remove();
 
 
 
 
 	// (iii) Add another h2 and another paragraph to the last div.module
-	$('div.module:last').append('<h2> This is the new heading added to the last div </h2>','<p> New para New para New para New para </p>').css("backgroundColor","orange");
+	$('div.module').last().append('<h2> This is the new heading added to the last div </h2>','<p> New para New para New para New para </p>').css("backgroundColor","orange");
 
 
 
@@ -26,5 +24,5 @@ $(document).ready(function(){
 
 
 	// (v) Add a new div.module to the page after the last one; put a copy of one of the existing images inside of it.
-	console.log($("img[alt='fruit']").clone().appendTo($("body").append("<div class='module' id='new_div_id'")).insertAfter("#specials").css("border", "3px solid blue"));
+	console.log($("img[alt='fruit']").clone().appendTo($("body").append("<div class='module' id='new_div_id'></div>")).insertAfter("#specials").css("border", "3px solid blue"));
 });
