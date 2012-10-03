@@ -103,6 +103,7 @@
 					</li>
 					<li class="buttons">
 						<input type="submit" class="input_submit" value="Go" />
+						<input type="submit" class="input_submit" value="New option" />
 					</li>
 				</ul>
 			</form>
