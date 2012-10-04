@@ -162,7 +162,7 @@ body {
 	float: left;
 	padding: 15px;
 	background-color: #333;
-	margin: 0 5px 0 0;
+	margin: 0 1px 0 0;
 	position: relative;
 	height: 20px;
 	list-style-type: none;
@@ -175,8 +175,9 @@ body {
 	font-weight: normal;
 }
 
-#nav li.hover {
-	background-color: blue;
+#nav li.hover ul{
+	border:3px solid blue;
+	display:block;
 }
 
 #nav li ul {
