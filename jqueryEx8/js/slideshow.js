@@ -1,9 +1,9 @@
 $(document).ready(function(){ 
-	$("#slideshow").insertBefore($("body").children(":first"));
-	$("<span> Navigation Area</span>").attr("id","nav_id").insertBefore("#slideshow");
-	$("#nav_id").css("color","red");
-	var no_of_images = $("#slideshow li img").length;
-	$("#nav_id").html("Total Number of Images are : "+ no_of_images);
+    $("#slideshow").insertBefore($("body").children(":first"));
+    $("<span> Navigation Area</span>").attr("id","nav_id").insertBefore("#slideshow");
+    $("#nav_id").css("color","red");
+    var no_of_images = $("#slideshow li img").length;
+    $("#nav_id").html("Total Number of Images are : "+ no_of_images);
     $("#slideshow li").hide();
 
     $(function(){
