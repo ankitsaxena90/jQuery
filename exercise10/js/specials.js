@@ -27,7 +27,7 @@ $(document).ready(function(){
     		complete : function(xhr, status) {
         		console.log('The request is complete!');
     		}
-		})
+		});
 	});
   $("#specials form").find("li.buttons").css("backgroundColor","red").remove();
 });
