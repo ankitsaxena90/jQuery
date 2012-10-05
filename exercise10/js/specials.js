@@ -10,10 +10,9 @@ $(document).ready(function(){
 		$.ajax({
 			url:'data/specials.json',
 			type:'Get',
-      		cache: true,
+			cache: true,
 			dataType:'json',
 			success : function(response){
-
 				data = response;
 				var day = $(data).attr(selected_day);
     			$("#div_id title").text($(day).attr("title"));
