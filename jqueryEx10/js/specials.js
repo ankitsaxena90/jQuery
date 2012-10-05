@@ -15,10 +15,10 @@ $(document).ready(function(){
 			success : function(response){
 				data = response;
 				var day = $(data).attr(selected_day);
-    			$("#div_id title").text($(day).attr("title"));
-         		$("#div_id").css("color",day.color)
-          		$("#div_id p").text($(day).attr("text"));
-          		$("#div_id img").attr("src",$(day).attr("image"));
+				$("#div_id title").text($(day).attr("title"));
+				$("#div_id").css("color",day.color);
+				$("#div_id p").text($(day).attr("text"));
+				$("#div_id img").attr("src",$(day).attr("image"));
 			},
 			error : function(xhr, status) {
         		alert('Sorry, there was a problem!');
@@ -26,7 +26,7 @@ $(document).ready(function(){
     		complete : function(xhr, status) {
         		console.log('The request is complete!');
     		}
-		});
+    	});
 	});
   $("#specials form").find("li.buttons").css("backgroundColor","red").remove();
 });
