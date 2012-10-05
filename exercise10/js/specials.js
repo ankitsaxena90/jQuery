@@ -1,16 +1,16 @@
 $(document).ready(function(){
 	var day_title = $("<title />");
 	var $new_div = $("<div id='div_id'></div>").insertAfter($("#specials form")); 
-  var day_text = $("<p></p>");
-  var day_image = $("<img />");
-  $new_div.append(day_title).append(day_text).append(day_image);
+  	var day_text = $("<p></p>");
+  	var day_image = $("<img />");
+  	$new_div.append(day_title).append(day_text).append(day_image);
 	$("#specials select").change(function(){
 		var selected_day = $(this).val();
 		console.log(selected_day);
 		$.ajax({
 			url:'data/specials.json',
 			type:'Get',
-      cache: true,
+      		cache: true,
 			dataType:'json',
 			success : function(response){
 
