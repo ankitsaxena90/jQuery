@@ -71,12 +71,14 @@ var attribute, selected_color;
 		}
 	});
 	$("#avail_products_id").removeAttr("checked");
+	var avail_products, visible_products;
 	$("#avail_products_id").click(function(){
 		if($(this).is(":checked")){
 			if($("#brand_filter,#color_filter").find("input[type='checkbox']").is(":checked")){
-				var avail_products = $('li[data-availability="0"]').filter(":visible").show();
+				visible_products = $('li').filter(":visible");
+				avail_products = $('li[data-availability="0"]').filter(":visible").show();
 				console.log(avail_products.show());
-				$("#products li").not(avail_products).hide();
+				console.log($("#products li").not(avail_products).hide());
 			}
 			else{
 				console.log($("#products li").hide());
@@ -84,7 +86,7 @@ var attribute, selected_color;
 			}
 		}
 		else{ 
-			console.log($("#products li").show());
+			visible_products.show();
 		}
 	});
 });
