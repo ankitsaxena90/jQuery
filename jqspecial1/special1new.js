@@ -61,15 +61,17 @@ $(document).ready(function(){
 		}
 	});
 
-	$("#avail").click(function(){
-		if($("#brand_filter,#color_filter").find("input[type='checkbox']").is(":checked")){
-			var avail_products = $('li[data-availability="0"]').filter(":visible").show();
-			console.log(avail_products.show());
-			$("#products li").not(avail_products).hide();
-		}
-		else{
-			console.log($("#products li").hide());
-			console.log($('li[data-availability="0"]').show());
+	$("#avail_products_id").click(function(){
+		if($(this).is(":checked")){
+			if($("#brand_filter,#color_filter").find("input[type='checkbox']").is(":checked")){
+				var avail_products = $('li[data-availability="0"]').filter(":visible").show();
+				console.log(avail_products.show());
+				$("#products li").not(avail_products).hide();
+			}
+			else{
+				console.log($("#products li").hide());
+				console.log($('li[data-availability="0"]').show());
+			}
 		}
 	});
 });
