@@ -24,28 +24,34 @@ $(document).ready(function(){
 			}
 		});	
 	});	
-
+var attribute, selected_color;
 	var filter_attribute = new Array();
 	$("#brand_filter").delegate("input[type='checkbox']", "click", function(){
-		//if($(this).is(":checked")){alert("unchecked");}
-		var attribute = $(this).val();
-		filter_attribute.push(attribute);
-		if($("#color_filter,#avail").find("input[type='checkbox']").is(":checked")){
-			var brnd = $('li[data-value="'+attribute+'"]').filter(":visible");
-			console.log(brnd.show());
-			$("#products li").not(brnd).hide();
-		}
-		else{console.log($("#products li").hide());
-			for(var i=0; i<(filter_attribute).length; i++){	
-				console.log($('li[data-value="'+filter_attribute[i]+'"]').show());	
+		if($(this).is(":checked")){
+			attribute = $(this).val();
+			filter_attribute.push(attribute);
+			if($("#color_filter,#avail").find("input[type='checkbox']").is(":checked")){
+				var brnd = $('li[data-value="'+attribute+'"]').filter(":visible");
+				console.log(brnd.show());
+				$("#products li").not(brnd).hide();
 			}
+			else{
+				console.log($("#products li").hide());
+				for(var i=0; i<(filter_attribute).length; i++){	
+					console.log($('li[data-value="'+filter_attribute[i]+'"]').show());	
+				}
+			}
+
 		}
-		//}
+		else{ 
+			console.log($('li[data-value="'+$(this).val()+'"]').toggle()); 
+		}
 	});
 
 	var color_array = new Array();
 	$("#color_filter").delegate("input[type='checkbox']","click", function(){
-		var selected_color = $(this).val();
+		if($(this).is(":checked")){
+		selected_color = $(this).val();
 		color_array.push(selected_color);
 		if($("#brand_filter,#avail").find("input[type='checkbox']").is(":checked")){
 			console.log("visible");
@@ -59,8 +65,12 @@ $(document).ready(function(){
 			console.log($('li[data-color="'+color_array[i]+'"]').show());
 			}
 		}
+		}
+		else{
+			console.log($('li[data-color="'+$(this).val()+'"]').toggle()); 
+		}
 	});
-
+	$("#avail_products_id").removeAttr("checked");
 	$("#avail_products_id").click(function(){
 		if($(this).is(":checked")){
 			if($("#brand_filter,#color_filter").find("input[type='checkbox']").is(":checked")){
@@ -72,6 +82,9 @@ $(document).ready(function(){
 				console.log($("#products li").hide());
 				console.log($('li[data-availability="0"]').show());
 			}
+		}
+		else{ 
+			console.log($("#products li").show());
 		}
 	});
 });
