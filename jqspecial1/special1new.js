@@ -37,11 +37,9 @@ var attribute, selected_color;
 			}
 			else{
 				console.log($("#products li").hide());
-				for(var i=0; i<(filter_attribute).length; i++){	
+				for(var i=0; i<(filter_attribute).length; i++)
 					console.log($('li[data-value="'+filter_attribute[i]+'"]').show());	
-				}
 			}
-
 		}
 		else{ 
 			console.log($('li[data-value="'+$(this).val()+'"]').toggle()); 
@@ -51,20 +49,19 @@ var attribute, selected_color;
 	var color_array = new Array();
 	$("#color_filter").delegate("input[type='checkbox']","click", function(){
 		if($(this).is(":checked")){
-		selected_color = $(this).val();
-		color_array.push(selected_color);
-		if($("#brand_filter,#avail").find("input[type='checkbox']").is(":checked")){
-			console.log("visible");
-			var clr = $('li[data-color="'+selected_color+'"]').filter(":visible");
-			console.log(clr.show());
-			$("#products li").not(clr).hide();
-		}
-		else{ 
-			console.log($("#products li").hide());
-			for(var i=0; i<color_array.length; i++){
-			console.log($('li[data-color="'+color_array[i]+'"]').show());
+			selected_color = $(this).val();
+			color_array.push(selected_color);
+			if($("#brand_filter,#avail").find("input[type='checkbox']").is(":checked")){
+				console.log("visible");
+				var clr = $('li[data-color="'+selected_color+'"]').filter(":visible");
+				console.log(clr.show());
+				$("#products li").not(clr).hide();
 			}
-		}
+			else{ 
+				console.log($("#products li").hide());
+				for(var i=0; i<color_array.length; i++)
+					console.log($('li[data-color="'+color_array[i]+'"]').show());
+			}
 		}
 		else{
 			console.log($('li[data-color="'+$(this).val()+'"]').toggle()); 
