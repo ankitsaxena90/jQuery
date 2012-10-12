@@ -1,6 +1,5 @@
 $(function() {
     var flag = true;
-    //$( "#employees" ).accordion();
     $("#employees li" ).draggable({
         appendTo: "body",
         helper: "clone"
