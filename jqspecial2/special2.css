@@ -1,0 +1,63 @@
+#container{
+	width: 1800px;
+	height: auto;
+}
+#roles{
+	width: 150px;
+	height: auto;
+	float: left;
+	border: 1px solid black;
+	margin-left: 30px;
+}
+#employees{
+	width: 150px;
+	height: auto;
+	float: left;
+	border: 1px solid black;
+	margin-left: 250px;
+	position: fixed;
+}
+#todos{
+	width: 1000px;
+	height: 700px;
+	float: left;
+	border: 1px solid black;
+	margin-left: 30px;
+}
+
+h1{
+	font-size: 20px;
+	text-align:center;
+	text-decoration:underline;
+	border-width:3px;
+	font-weight:bold;
+}
+li{
+	list-style-type: none;
+}
+h2{
+	text-align:center;
+	font-size: 14px;
+	text-decoration:underline;
+}
+#ror, #android, #jsu, #ios{
+	width: 148px;
+	min-height:40px;
+	overflow: hidden;
+	border: 2px solid black;
+}
+.inrole
+{
+	border: 1px solid black;
+	height:auto;
+	text-align: center;
+}
+.left
+{
+float : left;
+text-align:right;	
+width:50px;
+}
+img{
+	display: none;
+}
