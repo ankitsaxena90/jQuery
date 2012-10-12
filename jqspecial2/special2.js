@@ -84,9 +84,6 @@ $(function() {
             console.log($(delete_role_id).find(delete_emp_id).remove());
         }
     });
-    $(".todo_list").find("img").click(function(){
-        console.log($(this));
-    });
     //Expandable/Collapsing div
     $('#todos img').toggle(function() {
         $(this).attr('src', "add.png");
