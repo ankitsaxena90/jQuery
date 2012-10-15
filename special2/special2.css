@@ -24,6 +24,14 @@
 	border: 1px solid black;
 	margin-left: 300px;
 }
+#todos h1{
+	display: inline;
+	text-align: center;
+	margin-left: 300px;
+}
+#todos img{
+	display: block;
+}
 
 h1{
 	font-size: 20px;
@@ -116,4 +124,10 @@ border:2px solid #adacac;
 }
 .hidden {
 	visibility: hidden;
+}
+#ror_todo{
+	background-color: #E0FFFF;
+}
+#android_todo{
+	background-color: #E0FFFF;
 }

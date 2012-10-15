@@ -4,7 +4,7 @@
 		<link rel="stylesheet" href="special2.css" type="text/css"></link>
 		<script src="libs/jquery-1.5.1.js"></script>
 		<script src="libs/jquery-ui-1.9.0.custom.min.js"></script>
-		<script src="libs/jeip.js"></script>
+		<script src="special2part1.js"></script>
 		<script src="special2.js"></script>
 	</head>
 	<body>
@@ -37,20 +37,22 @@
 			</div>
 			<div id="todos">
 				<h1>ToDos</h1>
+				<img src="add.png" style="float:right;" class="expand" />
+				<img src="minus.png" style="float:right;" class="collapse"/>
 				<div class="todo_list" id="ror_todo">
-					<img src="minus.png" style="float:right;" /><h2>RoR Developer</h2>
+					<img src="minus.png" style="float:right;" class="slide" /><h2>RoR Developer</h2>
 					<div id="ror_list" class="toggle_div"></div>
 				</div>
 				<div class="todo_list" id="jsu_todo">
-					<img src="minus.png" style="float:right;" /><h2>JSU Developer</h2>
+					<img src="minus.png" style="float:right;" class="slide" /><h2>JSU Developer</h2>
 					<div id="jsu_list" class="toggle_div"></div>
 				</div>
 				<div class="todo_list" id="android_todo">
-					<img src="minus.png" style="float:right;" /><h2>Android</h2>
+					<img src="minus.png" style="float:right;" class="slide"/><h2>Android</h2>
 					<div id="android_list" class="toggle_div"></div>
 				</div>
 				<div class="todo_list" id="ios_todo">
-					<img src="minus.png" style="float:right;" /><h2>IOS</h2>
+					<img src="minus.png" style="float:right;" class="slide" /><h2>IOS</h2>
 					<div id="ios_list" class="toggle_div"></div>
 				</div>
 			</div>
