@@ -10,8 +10,7 @@ $(function() {
         //console.log($(this).closest(".emp_todo").text());
         input_text.appendTo(new_todo);
 
-        image_div = $("<div></div>");
-        image_div.attr("class","save");
+        image_div = $("<div></div>").attr("class","save");
         img_save = $('<img />');
         img_save.attr('src','save.png');
         img_save.attr('class','save_class');
