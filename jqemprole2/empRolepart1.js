@@ -1,5 +1,5 @@
+var flag = true;
 $(function() {
-    var flag = true;
     $("#employees div" ).draggable({
         appendTo: "body",
         helper: "clone"
@@ -15,59 +15,21 @@ $(function() {
                 }
             });
             if(flag == true){
-                //Appending data to ROLES
-                sub_role = $('<div></div>').attr('data-employee_id', dropElemId).attr("class","image addSubRole");
-
-                delete_div = $("<div></div>").attr("class","left");
-            
-                img_delete = $('<img />').attr('src','cross_circle.png');
-
-                employee_inRole = $('<div></div>').attr('class', 'inrole').text(dropElem).attr('id', 'emRole'+dropElemId);
-
-                delete_div.append(img_delete);
-                sub_role.append(delete_div).append(employee_inRole);
-                emp_role.append(sub_role);
-
-                $(".image").hover(function(){ 
-                    $(this).find('.left').find('img').show();
-                    $(this).css("background-color","grey"); }, 
-                    function(){ $(this).find('.left').find('img').hide();
-                    $(this).css("background-color","white") 
-                });
-
-                //Appending data to TODO
-                todo_role = '#' + emp_role.attr('id') + '_todo';
-                task_list = '#' + emp_role.attr('id') + '_list';
-
-                todo_container = $('<div></div>').attr('id', 'emp'+dropElemId);
-
-                middleBox = $('<div></div>').attr('class', 'mid');
-
-                employee_name = $('<div></div>').attr('class', 'emp_name');
-
-                employee_tasks = $('<div></div>').attr('class', 'emp_todo');
-
-                todo_image = $('<img />').attr('class', 'img_task').attr('src', 'add.png');
-                task_span = $("<span/>").text("Add todos for " + dropElem + " here");
-
-                employee_tasks.append(task_span);
-                employee_name.text(dropElem);
-
-                employee_tasks.append(todo_image);
-                middleBox.append(employee_name).append(employee_tasks);   
-                todo_container.append(middleBox);   
-                console.log($(todo_role).find(task_list).append(todo_container));
+                addToRole(emp_role, dropElemId,dropElem);    
+                addToSubroles(emp_role, dropElemId,dropElem);
             }
             else 
                 flag=true;
         }
     });
+
     //Deleteing node
     $(".role").delegate("img","click",function(){
         if(confirm("Are you sure, you want to delete.")) {
             delete_emp($(this));    
         }
     });
+
     //Expandable/Collapsing div
     $('#todos img.slide').toggle(function() {
         $(this).attr('src', "add.png");
@@ -75,15 +37,56 @@ $(function() {
         },
     function(){
         $(this).attr('src', "minus.png");
-        //console.log($(this).parent().children(".toggle_div"));
         $(this).parent().children(".toggle_div").slideDown();
     });
 });
+
+//Delete employee from Roles and Todo Table
 function delete_emp(delete_id){
-    var delete_role_id = '#'+delete_id.parent().parent().parent().attr("id")+'_list';
-    //delete_role_id = '#'+$(this).closest("id")+'_list';
-    var delete_emp_id = 'div#emp'+ delete_id.parent().parent().attr("data-employee_id");
-    //console.log(delete_role_id);
+    var delete_role_id = '#'+delete_id.closest(".role_category").attr("id")+'_list';
+    var delete_emp_id = 'div#emp'+ delete_id.closest(".image").attr("data-employee_id");
     delete_id.parent().parent().remove();
     console.log($(delete_role_id).find(delete_emp_id).remove());
+}
+
+//Appending data to ROLES
+function addToRole(emp_role, emp_id,emp_name){
+    sub_role = $('<div></div>').attr('data-employee_id', emp_id).attr("class","image addSubRole");
+    delete_div = $("<div></div>").attr("class","left");
+    img_delete = $('<img />').attr('src','cross_circle.png');
+    employee_inRole = $('<div></div>').attr('class', 'inrole').text(emp_name).attr('id', 'emRole'+emp_id);
+
+    delete_div.append(img_delete);
+    sub_role.append(delete_div).append(employee_inRole);
+    emp_role.append(sub_role);
+
+    $(".image").hover(function(){ 
+        $(this).find('.left').find('img').show();
+        $(this).css("background-color","grey"); }, 
+        function(){ $(this).find('.left').find('img').hide();
+        $(this).css("background-color","white") 
+    });
+}
+
+//Appending data to TODO-Adding subroles
+function addToSubroles(emp_role, emp_id,em_name){
+    todo_role = '#' + emp_role.attr('id') + '_todo';
+    task_list = '#' + emp_role.attr('id') + '_list';
+    todo_container = $('<div></div>').attr('id', 'emp'+emp_id);
+
+    middleBox = $('<div></div>').attr('class', 'mid');
+
+    employee_name = $('<div></div>').attr('class', 'emp_name');
+    employee_tasks = $('<div></div>').attr('class', 'emp_todo');
+
+    todo_image = $('<img />').attr('class', 'img_task').attr('src', 'add.png');
+    task_span = $("<span/>").text("Add todos for " + em_name + " here");
+
+    employee_tasks.append(task_span);
+    employee_name.text(em_name);;
+
+    employee_tasks.append(todo_image);
+    middleBox.append(employee_name).append(employee_tasks);   
+    todo_container.append(middleBox);   
+    $(todo_role).find(task_list).append(todo_container);
 }
