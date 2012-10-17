@@ -1,0 +1,108 @@
+<!Doctype html>
+<html>
+	<head>
+		<link rel="stylesheet" href="style.css" type="text/css"></link>
+		<script src="libs/jquery-1.5.1.js"></script>
+		<script src="shoppingCart.js"></script>
+	</head>
+	<body>
+		<div id="container">
+			<div id="main">
+				<div id="tab">
+					<a id="products" class="first_tab" href="#">Products</a> 
+					<a id="mycart" class="second_tab" href="#">My Cart(<span id = "item_count" >0</span>)</a>
+				</div>
+				<div style = "clear:both;"></div>
+				<div id="header">
+					Search: <input type = "text" /> <input type = "button" value = "search" />
+					<input type = "button" value = "clear" />
+					Category <select><option>All</option></select>
+				</div>
+				<div id="myCartDiv" class="hidden">
+					<span class="product_heading">Products</span>
+					<span class="price_format" >Price</span>
+					<span class="quantity" >Quantity</span>
+					<span class="subtotal">Subtotal</span>
+				</div>
+
+				<div id="items_list" class="products_list">
+					<div class="item_node" id="p1">
+						<div class="itemDiv1"><img class="ProductImage" src="products/product1.jpg"></div>
+						<div class="itemDiv2">
+							<strong><span class="title">Apple MacBook Pro MA464LL/A 15.4" Notebook PC</span></strong><br>Category: Computers<br class="clearBoth">
+							<small>The Intel Core Duo powering MacBook Pro is actually two processors built into a single chip.</small><br>
+							<strong>Price: <span class="price">5000</span></strong>
+						</div>
+						<div class="itemDiv3">
+							<label class="scLabelQuantity">Quantity:</label>
+							<input class="scTxtQuantity" type="text" value="1" size="1px">
+							<a class="AddToCart" href="#" rel="0" title="Add to Cart">Add to Cart</a>
+						</div>
+					</div>
+
+					<div class="item_node" id="p2">
+						<div class="itemDiv1"><img class="ProductImage" src="products/product2.jpg"></div>
+						<div class="itemDiv2">
+							<strong><span class="title">Sony VAIO 11.1" Notebook PC</span></strong><br>Category: Computers<br>
+							<small>Weighing in at just an amazing 2.84 pounds and offering a sleek, durable carbon-fiber case in charcoal black. And with 4 to 10 hours of standard battery life.</small><br>
+							<strong>Price: <span class="price">2500</span></strong>
+						</div>
+						<div class="itemDiv3">
+							<label class="scLabelQuantity">Quantity:</label>
+							<input class="scTxtQuantity" type="text" value="1" size="1px">
+							<a class="AddToCart" href="#" rel="1" title="Add to Cart">Add to Cart</a>
+						</div>
+					</div>
+
+					<div class="item_node" id="p3">
+						<div class="itemDiv1"><img class="ProductImage" src="products/product3.jpg"></div>
+						<div class="itemDiv2">
+							<strong><span class="title">Canon Digital Rebel XT 8MP Digital SLR Camera</strong></span><br>Category: Cameras<br>
+							<small>Canon EOS Digital Rebel XT SLR adds resolution, speed, extra creative control, and enhanced comfort in the hand to one of the smallest and lightest digital cameras in its class.</small><br>
+							<strong>Price: <span class="price">500</span></strong>
+						</div>
+						<div class="itemDiv3">
+							<label class="scLabelQuantity">Quantity:</label>
+							<input class="scTxtQuantity" type="text" value="1" size="1px">
+							<a class="AddToCart" href="#" rel="2" title="Add to Cart">Add to Cart</a>
+						</div>
+					</div>
+
+					<div class="item_node" id="p4">
+						<div class="itemDiv1"><img class="ProductImage" src="products/product4.jpg"></div>
+						<div class="itemDiv2">
+							<strong><span class="title">Headphone with mic</span></strong><br>Category: Accessories<br>
+							<small></small><br>
+							<strong>Price: <span class="price">150</span></strong>
+						</div>
+						<div class="itemDiv3">
+							<label class="scLabelQuantity">Quantity:</label>
+							<input class="scTxtQuantity" type="text" value="1" size="1px">
+							<a class="AddToCart" href="#" rel="6" title="Add to Cart">Add to Cart</a>
+						</div>
+					</div>
+
+					<div class="item_node" id="p5">
+						<div class="itemDiv1"><img class="ProductImage" src="products/product5.jpg"></div>
+						<div class="itemDiv2">
+							<strong><span class="title">Samsung Galaxy S3</span></strong><br>Category: Mobile Phones<br>
+							<small></small><br>
+							<strong>Price: <span class="price">8500</span></strong>
+						</div>
+						<div class="itemDiv3">
+							<label class="scLabelQuantity">Quantity:</label>
+							<input class="scTxtQuantity" type="text" value="1" size="1px">
+							<a class="AddToCart" href="#" rel="5" title="Add to Cart">Add to Cart</a>
+						</div>
+					</div>
+
+				</div>
+				<div id="bottom_tab">
+					Total: <input type="text" id="total_box" size="10px"/> <input type="button" id="checkout" value="Checkout" />
+				</div>
+			</div>
+		</div>
+	</body>
+</html>
+
+

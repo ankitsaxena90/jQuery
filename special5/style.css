@@ -1,0 +1,137 @@
+#container {
+	margin-top:15px;
+	margin-right:15px;
+	height:520px;
+	width:1000px;
+	border:1px solid black;
+}
+#main {
+	width:100%;
+}
+#products, #mycart { 
+	display:block;
+	float:left;
+	padding: 5px 30px 5px 30px;
+	margin: 15px 5px 0px 5px;
+	border:1px solid grey;
+	border-bottom: none;
+	text-decoration:none;
+	color:black;
+	background-color:lightgrey;
+}
+#header {
+	padding: 5px 5px 5px 10px;
+	background-color:lightgrey;
+	color:grey;
+}
+#items_list{
+	height:400px;
+	width: 100%;
+	overflow: scroll;
+}
+#bottom_tab{
+	padding-top: 400px;
+	text-align:right;
+	padding-top:5px;
+	padding-right:100px;
+	border-top: 1px solid black;
+	
+}
+#checkout{
+	font-weight: bold;
+	font-size: 20px;
+	background-color: grey;
+	color: white;
+}
+.itemDiv1{
+	width: 50px;
+	height: 50px;
+
+}
+.itemDiv1 img{
+	width: 100px;
+	height: 100px;
+	float: left;
+}
+.itemDiv2{
+	width: 600px;
+	height: 100px;
+	padding: 5px;
+	float: left;
+	margin-top: -40px;
+}
+.itemDiv3{
+	width: 100px
+	height:120px;
+	float: left;
+	
+}
+.itemDiv3 a{
+	text-decoration: none;
+	border: 1px solid black;
+	border-radius: 25px;
+	padding: 2px;
+}
+.item_node{
+	width: 100%;
+	height:120px;
+	margin-top: 2px;
+	background-color: lightgrey;
+}
+.clearBoth { clear:both; }
+.AddToCart{
+	color: black;
+}
+.hidden{
+
+	display: none;
+}
+#myCartDiv{
+	height:400px;
+	width: 100%;
+	overflow: scroll;
+}
+.myCartTitle {
+	margin-left: 40px;
+	padding: 2px;
+	background-color: lightgrey;
+	display: inline-block;
+}
+.qty{
+	margin-left: 50px;
+	padding: 2px;
+	background-color: lightgrey;
+	display: inline-block;
+}
+.price_class{
+	margin-left: 40px;
+	padding: 2px;
+	background-color: lightgrey;
+	display: inline-block;
+}
+.price_format {
+	margin-left: 400px;
+}
+.quantity{
+	margin-left: 50px;
+} 
+.subtotal{
+	margin-left: 50px;
+}
+.myCartTitle{
+	width: 300px;
+}
+.text_class{
+	width: 30px;
+}
+.cart_image{
+	width: 100px;
+	height: 100px;
+	vertical-align: middle;
+}
+.remove_btn{
+	margin-left: 50px;
+}
+.subtotal_class{
+	margin-left: 90px;
+}
