@@ -1,28 +1,21 @@
 var filter_attribute;
 var this_item;
+var productArray = new Array();
 $(function(){
 	$.getJSON('product.json',function(data){
 		var items = [];
-		var productArray = new Array();
+		
 		$.each(data,function(key,val){
 			var color = val.color;
 		   $("<li data-color = '"+val.color+"' data-value= '" +val.brand+ "' data-availability='"+val.sold_out+"'><img src=\"images/" + data[key].url+ "\"></li>").appendTo("#products");
 			
-			//Adding filter 'Brand'
-			var brand = $(this).attr('brand');
-			if( jQuery.inArray(brand, productArray) == -1 ){
-				var checkbox = $('<span><input type="checkbox" value="'+brand+'" /> '+brand+'</span>');
-				checkbox.appendTo("#brand_filter");
-				productArray.push(brand);
-			}
+			//Adding Category 'Brand'
+			var category1 = "brand";
+			addCategory($(this),category1);
 
-			//Adding filter 'Color'
-			var color = $(this).attr('color');
-			if( jQuery.inArray(color, productArray) == -1 ){
-				var checkbox = $('<span><input type="checkbox" value="'+color+'" /> '+color+'</span>');
-				checkbox.appendTo("#color_filter");
-				productArray.push(color);
-			}
+			//Adding category 'Color'
+			var category2 = "color";
+			addCategory($(this),category2);
 		});
 	});
 	$("#brand_filter").delegate("input[type='checkbox']", "click", function(){
@@ -91,4 +84,14 @@ function displayProducts(){
 	if(flag1 && flag3 >= 1&& flag2 == 0) $('li.brand_class.inStock').show();
 	if(flag2 && flag3 >= 1 && flag1 == 0) $('li.color_class.inStock').show();
 	if(flag1 && flag2 && flag3 > 0) $('li.brand_class.color_class.inStock').show();
+}
+
+function addCategory(this_item,str){
+	var filter = this_item.attr(str);
+	if( jQuery.inArray(filter, productArray) == -1 ){
+		var checkbox = $('<span><input type="checkbox" value="'+filter+'" /> '+filter+'</span>');
+		var div = '#'+str+'_filter';
+		checkbox.appendTo(div);
+		productArray.push(filter);
+	}
 }
