@@ -32,6 +32,16 @@ $(function(){
 	$("#avail_products_id").removeAttr("checked");	
 });
 
+function addCategory(this_item,str){
+	var filter = this_item.attr(str);
+	if( jQuery.inArray(filter, productArray) == -1 ){
+		var checkbox = $('<span><input type="checkbox" value="'+filter+'" /> '+filter+'</span>');
+		var div = '#'+str+'_filter';
+		checkbox.appendTo(div);
+		productArray.push(filter);
+	}
+}
+
 var flag1 = 0, flag2 = 0, flag3 = 0;
 function brandFilter(this_item){
 	filter_attribute = this_item.attr("value");
@@ -84,14 +94,4 @@ function displayProducts(){
 	if(flag1 && flag3 >= 1&& flag2 == 0) $('li.brand_class.inStock').show();
 	if(flag2 && flag3 >= 1 && flag1 == 0) $('li.color_class.inStock').show();
 	if(flag1 && flag2 && flag3 > 0) $('li.brand_class.color_class.inStock').show();
-}
-
-function addCategory(this_item,str){
-	var filter = this_item.attr(str);
-	if( jQuery.inArray(filter, productArray) == -1 ){
-		var checkbox = $('<span><input type="checkbox" value="'+filter+'" /> '+filter+'</span>');
-		var div = '#'+str+'_filter';
-		checkbox.appendTo(div);
-		productArray.push(filter);
-	}
 }
