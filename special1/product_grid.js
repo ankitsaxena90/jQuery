@@ -69,7 +69,6 @@ function colorFilter(this_item){
 		flag2--;
 		displayProducts();	
 	}
-	
 }
 
 function availProducts(this_item){
