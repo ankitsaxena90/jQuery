@@ -87,12 +87,12 @@ function availProducts(this_item){
 function displayProducts(){
 	$("#products li").hide();
 
-	if(flag1 >= 1 && flag2 == 0 && flag3 == 0) $('li.brand_class').show();
-	else if(flag1 == 0 && flag2 >= 1 && flag3 == 0) $('li.color_class').show();
+	if(flag1 > 0 && flag2 == 0 && flag3 == 0) $('li.brand_class').show();
+	else if(flag1 == 0 && flag2 > 0 && flag3 == 0) $('li.color_class').show();
 	else if(flag1 == 0 && flag2 == 0 && flag3 == 1) $('li.inStock').show();
-	else if(flag1 && flag2 >= 1 && flag3 == 0) $('li.brand_class.color_class').show();
-	else if(flag1 && flag3 >= 1&& flag2 == 0) $('li.brand_class.inStock').show();
-	else if(flag2 && flag3 >= 1 && flag1 == 0) $('li.color_class.inStock').show();
+	else if(flag1 && flag2 > 0 && flag3 == 0) $('li.brand_class.color_class').show();
+	else if(flag1 && flag3 > 0 && flag2 == 0) $('li.brand_class.inStock').show();
+	else if(flag2 && flag3 > 0 && flag1 == 0) $('li.color_class.inStock').show();
 	else if(flag1 && flag2 && flag3 > 0) $('li.brand_class.color_class.inStock').show();
 	else $("#products li").show();
 }
