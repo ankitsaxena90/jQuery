@@ -36,23 +36,23 @@ function addCategory(this_item,str){
 	var filter = this_item.attr(str);
 	if( jQuery.inArray(filter, productArray) == -1 ){
 		var checkbox = $('<span><input type="checkbox" value="'+filter+'" /> '+filter+'</span>');
-		var div = '#'+str+'_filter';
+		var div = '#' +str+ '_filter';
 		checkbox.appendTo(div);
 		productArray.push(filter);
 	}
 }
 
-var flag1 = 0, flag2 = 0, flag3 = 0;
+var brand_filter_count = 0, color_filter_count = 0, available_filter_count = 0;
 function brandFilter(this_item){
 	filter_attribute = this_item.attr("value");
 	if(this_item.is(":checked")){
-		flag1++;
+		brand_filter_count++;
 		$('li[data-value="'+filter_attribute+'"]').addClass("brand_class");
 		displayProducts();
 	}
 	else{
 		$('li[data-value="'+filter_attribute+'"]').removeClass("brand_class");
-		flag1--;
+		brand_filter_count--;
 		displayProducts();	
 	}	
 }
@@ -60,13 +60,13 @@ function brandFilter(this_item){
 function colorFilter(this_item){
 	filter_attribute = this_item.attr("value");
 	if(this_item.is(":checked")){
-		flag2++;
+		color_filter_count++;
 		$('li[data-color="'+filter_attribute+'"]').addClass("color_class");
 		displayProducts();
 	}
 	else{
 		$('li[data-color="'+filter_attribute+'"]').removeClass("color_class");
-		flag2--;
+		color_filter_count--;
 		displayProducts();	
 	}
 }
@@ -74,25 +74,34 @@ function colorFilter(this_item){
 function availProducts(this_item){
 	if(this_item.is(":checked")){
 		console.log($('li[data-availability="0"]').addClass("inStock"));
-		flag3 = 1;
+		available_filter_count = 1;
 		displayProducts();
 	}
 	else{
 		$('li[data-availability="0"]').removeClass("inStock");
-		flag3 = 0;
+		available_filter_count = 0;
 		displayProducts();
 	}	
 }
 
 function displayProducts(){
 	$("#products li").hide();
+	//Only brand filter checkbox is selected
+	if(brand_filter_count > 0 && color_filter_count == 0 && available_filter_count == 0) $('li.brand_class').show();
+	//Only Color filter checkbox is selected
+	else if(brand_filter_count == 0 && color_filter_count > 0 && available_filter_count == 0) $('li.color_class').show();
 
-	if(flag1 > 0 && flag2 == 0 && flag3 == 0) $('li.brand_class').show();
-	else if(flag1 == 0 && flag2 > 0 && flag3 == 0) $('li.color_class').show();
-	else if(flag1 == 0 && flag2 == 0 && flag3 == 1) $('li.inStock').show();
-	else if(flag1 && flag2 > 0 && flag3 == 0) $('li.brand_class.color_class').show();
-	else if(flag1 && flag3 > 0 && flag2 == 0) $('li.brand_class.inStock').show();
-	else if(flag2 && flag3 > 0 && flag1 == 0) $('li.color_class.inStock').show();
-	else if(flag1 && flag2 && flag3 > 0) $('li.brand_class.color_class.inStock').show();
+	//Only Availability option is selected
+	else if(brand_filter_count == 0 && color_filter_count == 0 && available_filter_count == 1) $('li.inStock').show();
+
+	//when multiple filters are selected
+	else if(brand_filter_count && color_filter_count > 0 && available_filter_count == 0) $('li.brand_class.color_class').show();
+	else if(brand_filter_count && available_filter_count > 0 && color_filter_count == 0) $('li.brand_class.inStock').show();
+	else if(color_filter_count && available_filter_count > 0 && brand_filter_count == 0) $('li.color_class.inStock').show();
+
+	//all three filter checkboxes are selected
+	else if(brand_filter_count && color_filter_count && available_filter_count > 0) $('li.brand_class.color_class.inStock').show();
+
+	//if none is selected
 	else $("#products li").show();
 }
