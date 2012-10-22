@@ -5,7 +5,7 @@ $(document).ready(function() {
     if(name[1] != undefined) {
 
         $(nodes[name[1]]).css('background-color', 'red');
-        $(nodes[name[1]]).parents().slideDown();
+        $(nodes[name[1]]).parents().show();
     }
 
     $('.container a').click(function(e){
