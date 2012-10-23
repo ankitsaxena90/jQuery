@@ -32,6 +32,7 @@ $(function(){
 	$("#avail_products_id").removeAttr("checked");	
 });
 
+//Creates filter options for brand and color
 function addCategory(this_item,str){
 	var filter = this_item.attr(str);
 	if( jQuery.inArray(filter, productArray) == -1 ){
@@ -43,6 +44,7 @@ function addCategory(this_item,str){
 }
 
 var brand_filter_count = 0, color_filter_count = 0, available_filter_count = 0;
+//Add brand_class when the user selects brand filter checkbox
 function brandFilter(this_item){
 	filter_attribute = this_item.attr("value");
 	if(this_item.is(":checked")){
@@ -56,7 +58,7 @@ function brandFilter(this_item){
 		displayProducts();	
 	}	
 }
-
+//Add color_class when the user selects color filter checkbox
 function colorFilter(this_item){
 	filter_attribute = this_item.attr("value");
 	if(this_item.is(":checked")){
@@ -71,6 +73,7 @@ function colorFilter(this_item){
 	}
 }
 
+//Add  inStock class on selecting availability checkbox
 function availProducts(this_item){
 	if(this_item.is(":checked")){
 		console.log($('li[data-availability="0"]').addClass("inStock"));
