@@ -83,25 +83,32 @@ function availProducts(this_item){
 		displayProducts();
 	}	
 }
-
 function displayProducts(){
 	$("#products li").hide();
-	//Only brand filter checkbox is selected
-	if(brand_filter_count > 0 && color_filter_count == 0 && available_filter_count == 0) $('li.brand_class').show();
-	//Only Color filter checkbox is selected
-	else if(brand_filter_count == 0 && color_filter_count > 0 && available_filter_count == 0) $('li.color_class').show();
+	switch(true){
+		//Only brand filter checkbox is selected
+ 		case (brand_filter_count > 0 && color_filter_count == 0 && available_filter_count == 0) : $('li.brand_class').show(); 
+ 		break;
 
-	//Only Availability option is selected
-	else if(brand_filter_count == 0 && color_filter_count == 0 && available_filter_count == 1) $('li.inStock').show();
+ 		//Only Color filter checkbox is selected
+ 		case (brand_filter_count == 0 && color_filter_count > 0 && available_filter_count == 0) : $('li.color_class').show(); 
+ 		break;
 
-	//when multiple filters are selected
-	else if(brand_filter_count && color_filter_count > 0 && available_filter_count == 0) $('li.brand_class.color_class').show();
-	else if(brand_filter_count && available_filter_count > 0 && color_filter_count == 0) $('li.brand_class.inStock').show();
-	else if(color_filter_count && available_filter_count > 0 && brand_filter_count == 0) $('li.color_class.inStock').show();
+ 		//Only Availability option is selected
+ 		case (brand_filter_count == 0 && color_filter_count == 0 && available_filter_count == 1) : $('li.inStock').show(); 
+ 		break;
 
-	//all three filter checkboxes are selected
-	else if(brand_filter_count && color_filter_count && available_filter_count > 0) $('li.brand_class.color_class.inStock').show();
-
-	//if none is selected
-	else $("#products li").show();
+ 		//when multiple filters are selected
+ 		case (brand_filter_count && color_filter_count > 0 && available_filter_count == 0) : $('li.brand_class.color_class').show(); 
+ 		break;
+ 		case (brand_filter_count && available_filter_count > 0 && color_filter_count == 0) : $('li.brand_class.inStock').show(); 
+ 		break;
+ 		case (color_filter_count && available_filter_count > 0 && brand_filter_count == 0) : $('li.brand_class.inStock').show(); 
+ 		break;
+ 		//Checking whether item is available or sold out
+ 		case (brand_filter_count && available_filter_count && color_filter_count > 0): $('li.brand_class.color_class.inStock').show(); 
+ 		break;
+ 		default : $("#products li").show();
+        break;
+	}
 }

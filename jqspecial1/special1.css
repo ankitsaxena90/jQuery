@@ -70,8 +70,11 @@ input {
 }
 #color_filter {
 	margin-top: 40px;
+	margin-left: -15px;
 }
 #avail{
 	margin-top: 20px;
-	margin-left: 20px;
+}
+#brand_filter{
+	display: inline;
 }
