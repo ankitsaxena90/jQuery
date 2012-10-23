@@ -109,6 +109,6 @@ function displayProducts(){
  		case (brand_filter_count && available_filter_count && color_filter_count > 0): $('li.brand_class.color_class.inStock').show(); 
  		break;
  		default : $("#products li").show();
-        	break;
+        break;
 	}
 }
