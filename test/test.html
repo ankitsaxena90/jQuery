@@ -1,0 +1,45 @@
+<!Doctype html>
+<html>
+	<head>
+		<link rel="stylesheet" type="text/css" href="test.css">
+		<script src="libs/jquery-1.5.1.js" type="text/javascript"></script>
+		<script src="test.js" type="text/javascript"></script>
+	</head>
+	<body>
+		<div id="container">
+			Title:<input type="text" id="title" /><br/>
+			Description:<input type="textarea" id="description"/><br/>
+			Tags:<input type="text" id="tags" /><br/>
+			<div id="users_div">
+				<select id="users">Users
+				<option class="user1" id="1">User1</option>
+				<option class="user2" id="1">User2</option>
+				<option class="user3" id="1">User3</option>
+				<option class="user4" id="1">User4</option>
+			</select>
+			</div>
+			<input type="button" id="create_btn" value="Create Story" onclick="createStory();">
+			<div id="tasks">
+				<table>
+					<tr>
+				<td><span id="story_title">Title</span></td>
+				<td><span id="story_desc">Description</span></td>
+				<td><span id="story_tags">Tags</span></td>
+				<td><span id="assigned_user">Assigned to</span></td>
+					</tr>
+				</table>
+			</div>
+			<div id="user_stories">
+				<table>
+					<tr>
+						<td><span >Title</span></td>
+						<td><span >Description</span></td>
+						<td><span >Tags</span></td>
+						<td><span >Assigned to</span></td>
+					</tr>
+				</table>
+
+			</div>
+		</div>
+	</body>
+</html>

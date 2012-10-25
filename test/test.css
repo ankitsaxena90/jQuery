@@ -1,0 +1,20 @@
+#description{
+
+}
+.hidden{
+	display: none;
+}
+#tasks{
+	margin: 10px;
+}
+.new_task{
+	margin: 15px;
+}
+td{
+	width:80px;
+	border: 1px solid black;
+}
+.user_class{
+	cursor: pointer;
+	padding-left: 10px;
+}
