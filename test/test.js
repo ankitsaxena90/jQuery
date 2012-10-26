@@ -18,7 +18,6 @@ function createStory(){
 	var titleField = $("#title").val();
 	var descriptionField = $("#description").val();
 	var tagField = $("#tags").val();
-	var comma = /(,)/;
 	var comma = /\,/;
 	var tagArray = tagField.split(comma);
 	console.log(tagArray.length);
@@ -31,7 +30,7 @@ function createStory(){
 	task.tagField = tagField;
 	task.username = assigned_user;
 	story.push(task);
-
+	
 
 	var assigned_to_user = $("#users").val();
 	var user_id = $("#users").attr("id");

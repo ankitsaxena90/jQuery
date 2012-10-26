@@ -6,19 +6,20 @@
 		<script src="test.js" type="text/javascript"></script>
 	</head>
 	<body>
+		<form id="create_story" onsubmit="createStory()">
 		<div id="container">
 			Title:<input type="text" id="title" /><br/>
-			Description:<input type="textarea" id="description"/><br/>
+			Description:<br/><textarea col=50 row=8 id="description"></textarea><br/>
 			Tags:<input type="text" id="tags" /><br/>
 			<div id="users_div">
 				<select id="users">Users
-				<option class="user1" id="1">User1</option>
-				<option class="user2" id="1">User2</option>
-				<option class="user3" id="1">User3</option>
-				<option class="user4" id="1">User4</option>
-			</select>
+					<option class="user1" id="1">User1</option>
+					<option class="user2" id="2">User2</option>
+					<option class="user3" id="3">User3</option>
+					<option class="user4" id="4">User4</option>
+				</select>
 			</div>
-			<input type="button" id="create_btn" value="Create Story" onclick="createStory();">
+			<input type="submit" id="create_btn" value="Create Story">
 			<div id="tasks">
 				<table>
 					<tr>
@@ -45,5 +46,6 @@
 
 			</div>
 		</div>
+		</form>
 	</body>
 </html>
